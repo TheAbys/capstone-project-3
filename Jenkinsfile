@@ -3,7 +3,7 @@
 library identifier: "jenkins-shared-library@master", retriever: modernSCM([
     $class: "GitSCMSource",
     remote: "git@github.com:TheAbys/devops-bootcamp-08-jenkins-shared-library.git",
-    credentialsId: "capstone-project-1"
+    credentialsId: "github"
 ])
 
 pipeline {   
