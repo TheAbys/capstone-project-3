@@ -2,7 +2,7 @@
 
 library identifier: "jenkins-shared-library@master", retriever: modernSCM([
     $class: "GitSCMSource",
-    remote: "git@github.com:TheAbys/devops-bootcamp-08-jenkins-shared-library.git",
+    remote: "git@github.com:TheAbys/capstone-jenkins-library.git",
     credentialsId: "github"
 ])
 
@@ -13,7 +13,7 @@ pipeline {
   }
 
   environment {
-    IMAGE_NAME = '904233123058.dkr.ecr.eu-central-1.amazonaws.com:java-maven-2.0'
+    IMAGE_NAME = 'theabys/java-maven-app:latest'
   }
   stages {
     stage("build app") {
@@ -55,7 +55,7 @@ pipeline {
     }
     stage("deploy") {
       environment {
-        DOCKER_CREDS = credentials('capstone-project-1-ecr-credentials')
+        DOCKER_CREDS = credentials('docker-hub-repo')
       }
       steps {
         script {
