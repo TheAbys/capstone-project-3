@@ -1,8 +1,8 @@
 terraform {
   required_version = ">= 0.12"
   backend "s3" {
-    bucket = "myapp-tf-s3-bucket"
-    key = "myapp/state.tfstate"
+    bucket = "mueller-capstone-projects-tf-s3-bucket"
+    key = "capstone-project-3/state.tfstate"
     region = "eu-central-1"
   }
 }
@@ -98,7 +98,7 @@ resource "aws_instance" "myapp-server" {
   availability_zone = var.avail_zone
 
   associate_public_ip_address = true
-  key_name = "myapp-key-pair"
+  key_name = "ssh-server-key"
 
   user_data = file("entry-script.sh")
 
